@@ -18,6 +18,7 @@ class Addition extends React.Component {
   //   this.generateEasyProblem()
   // }
 
+
   render() {
     if (this.state.difficultySelect) {
       return (
