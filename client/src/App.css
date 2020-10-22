@@ -1,0 +1,45 @@
+.bg-base{
+  background-color: #f7f7f7;
+  flex-grow: 1;
+}
+
+
+.navHeight {
+  height: 15rem;
+}
+.navBg{
+  background-image: url('./Assets/NavBanner.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.text-lb{
+  color: #8bdbf0;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.border-img {
+ background-image: url("./Assets/borderBanner.png");
+  width: 30vw;
+ height: 40vh; 
+ background-size: contain;
+ background-repeat: no-repeat;
+ background-position: center;
+}
+
+.text-gold {
+  color: rgb(212,175,55)
+}
+
+.number-text{
+  font-size: 10rem;
+}
+
+.answer-form{
+  height: 5rem;
+  font-size: 4rem;
+  width: 15%;
+}
