@@ -1,6 +1,8 @@
 import React from 'react';
 import '../App.css';
 import Difficulty from "./Difficulty";
+import CorrectModal from "./CorrectModal"
+import InCorrectModal from "./IncorrectModal"
 
 
 class Addition extends React.Component {
@@ -11,7 +13,9 @@ class Addition extends React.Component {
       num2: 0,
       difficulty: "",
       difficultySelect: true,
-      userAnswer: ""
+      userAnswer: "",
+      correctModal: false,
+      incorrectModal: false
     }
   }
   // componentDidMount() {
@@ -31,14 +35,14 @@ class Addition extends React.Component {
           <div>
             <i className="fa fa-arrow-left fa-3x cursor" aria-hidden="true" onClick={() => this.props.changeView("home")}></i>
           </div>
-          <div className="row">
-            <div className="col text-center number-text">
+          <div className="row d-flex justify-content-center">
+            <div className="col-3 text-right number-text">
               {this.state.num1}
             </div>
-            <div className="col text-center number-text">
+            <div className="col-2 text-center number-text">
               +
             </div>
-            <div className="col text-center number-text">
+            <div className="col-3 text-left number-text">
               {this.state.num2}
             </div>
           </div>
@@ -52,12 +56,26 @@ class Addition extends React.Component {
               <input className="answer-form" onKeyPress={this.checkAnswer} onChange={this.updateInput} value={this.state.userAnswer} />
             </div>
           </div>
-          {this.state.userAnswer}
+          <CorrectModal show={this.state.correctModal} closeModal={this.closeModal} />
+          <InCorrectModal show={this.state.incorrectModal} closeModal={this.closeModal} />
         </div>
       )
     }
   }
 
+  problemRouter = () => {
+    var difficulty = this.state.difficulty
+    this.setState({
+      userAnswer: ""
+    })
+    if (difficulty === "easy") {
+      this.generateEasyProblem()
+    } else if (difficulty === "medium") {
+      this.generateMediumProblem()
+    } else {
+      this.generateHardProblem()
+    }
+  }
   generateEasyProblem = () => {
     this.setState({
       num1: Math.ceil(Math.random() * 10),
@@ -80,9 +98,22 @@ class Addition extends React.Component {
     if (e.key === "Enter") {
       const answer = parseInt(this.state.userAnswer)
       if (answer === this.state.num1 + this.state.num2) {
-
-      } else { console.log("wrong") }
+        this.setState({
+          correctModal: true
+        })
+        this.problemRouter()
+      } else {
+        this.setState({
+          incorrectModal: true
+        })
+      }
     }
+  }
+  closeModal = (modal) => {
+    this.setState({
+      incorrectModal: false,
+      correctModal: false
+    })
   }
 
   updateInput = (e) => {
@@ -94,14 +125,9 @@ class Addition extends React.Component {
     this.setState({
       difficulty: choice,
       difficultySelect: false
+    }, () => {
+      this.problemRouter()
     })
-    if (choice === "easy") {
-      this.generateEasyProblem()
-    } else if (choice === "medium") {
-      this.generateMediumProblem()
-    } else {
-      this.generateHardProblem()
-    }
   }
 }
 export default Addition

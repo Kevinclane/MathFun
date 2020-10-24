@@ -3,7 +3,6 @@
   flex-grow: 1;
 }
 
-
 .navHeight {
   height: 15rem;
 }
@@ -42,4 +41,48 @@
   height: 5rem;
   font-size: 4rem;
   width: 15%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  z-index: 100;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px black;
+  background-color: rgb(36, 150, 195);
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.text-modal-correct{
+  background-image: url("./Assets/GreatJob.gif");
+  width: 30vw;
+  height: 40vh; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.text-modal-inCorrect{
+  background-image: url("./Assets/Incorrect.gif");
+  width: 30vw;
+  height: 40vh; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-pink {
+  background-color: rgb(237, 133, 160);
+}
+
+.btn-pink{
+  background-color: rgb(237, 133, 160) !important;
+  color: #fff !important;
+  border-color: rgb(237, 133, 160) !important;
 }
