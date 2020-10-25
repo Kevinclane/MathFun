@@ -53,7 +53,7 @@ class Addition extends React.Component {
           </div>
           <div className="row">
             <div className="col text-center ">
-              <input className="answer-form" onKeyPress={this.checkAnswer} onChange={this.updateInput} value={this.state.userAnswer} />
+              <input name="answerForm" className="answer-form" onKeyPress={this.checkAnswer} onChange={this.updateInput} value={this.state.userAnswer} autoFocus />
             </div>
           </div>
           <CorrectModal show={this.state.correctModal} closeModal={this.closeModal} />
@@ -109,7 +109,7 @@ class Addition extends React.Component {
       }
     }
   }
-  closeModal = (modal) => {
+  closeModal = () => {
     this.setState({
       incorrectModal: false,
       correctModal: false

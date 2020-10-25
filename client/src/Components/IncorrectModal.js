@@ -7,7 +7,7 @@ class InCorrectModal extends React.Component {
 
   }
   render() {
-    if (this.props.show == true) {
+    if (this.props.show === true) {
       return (
         <div className="modal-overlay text-center container">
           <div className="row">
