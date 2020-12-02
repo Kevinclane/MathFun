@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar.js"
 import Home from "./Components/Home.js"
 import Addition from "./Components/Addition";
 import Subtraction from "./Components/Subtraction";
+import Missing from "./Components/Missing.js"
 
 // let base = window.location.host.includes("localhost")
 //   ? "//localhost:3000/"
@@ -43,6 +44,13 @@ class App extends React.Component {
         <div>
           <Navbar />
           <Subtraction changeView={this.changeView} />
+        </div>
+      )
+    } else if (this.state.view === "missing") {
+      return (
+        <div>
+          <Navbar />
+          <Missing changeView={this.changeView} />
         </div>
       )
     }
